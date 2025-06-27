@@ -2,12 +2,14 @@ import express from 'express';
 import mongoose from 'mongoose';
 import "dotenv/config";
 import userRoutes from './Routes/user.js'
+import contactRoutes from './Routes/contact.js'
 
 const app = express();
 
 app.use(express.json());
 
 app.use('/api/user', userRoutes);
+app.use('/api/contact',contactRoutes);
 
 app.get('/',(req,res)=>{
     res.json({
