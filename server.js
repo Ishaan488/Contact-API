@@ -1,21 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import "dotenv/config";
-import {register} from './Controllers/user.js'
-
+import userRoutes from './Routes/user.js'
 
 const app = express();
 
 app.use(express.json());
+
+app.use('/api/user', userRoutes);
 
 app.get('/',(req,res)=>{
     res.json({
         message:"Hello world"
     })
 })
-
-app.post('/api/user/register', register)
-
 
 mongoose.connect(`${process.env.connectionString}`, { dbName: "Contact_API" ,})
     .then(() => { console.log("MongoDB Connected.") })
