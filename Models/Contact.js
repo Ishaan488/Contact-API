@@ -5,7 +5,7 @@ const contactSchema = new mongoose.Schema({
     email:{type:String,require:true},
     phone:{type:Number,require:true},
     type:{type:String,require:true},
-    createdAt:{type:Date,default:Date.now}  
+    createdAt:{type:Date,default:Date.now}
 })
 
 export const Contact = mongoose.model("Contact",contactSchema);
